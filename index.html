@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cửa hàng sản phẩm Mỹ</title>
+    <meta
+      name="description"
+      content="Cửa hàng sản phẩm Mỹ dạng tĩnh, có tìm kiếm, lọc, sắp xếp và trang chi tiết sản phẩm."
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand-block">
+          <p class="eyebrow">Tam Kỳ, Quảng Nam</p>
+          <h1>Sản phẩm Mỹ</h1>
+          <p class="header-copy">
+            Tìm kiếm, lọc và xem chi tiết sản phẩm với ảnh thật từ từng thư mục sản phẩm.
+          </p>
+        </div>
+
+        <div class="stats" aria-label="Tóm tắt danh mục">
+          <div>
+            <span id="statProducts">0</span>
+            <small>Sản phẩm</small>
+          </div>
+          <div>
+            <span id="statCategories">0</span>
+            <small>Danh mục</small>
+          </div>
+          <div>
+            <span id="statPrice">0 VND</span>
+            <small>Giá từ</small>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="controlsBand" class="controls-band" aria-label="Bộ lọc sản phẩm">
+        <div class="controls-grid">
+          <label class="control search-control">
+          <span>Tìm kiếm</span>
+          <input id="searchInput" type="search" placeholder="Tìm theo sản phẩm, thương hiệu, công dụng, thành phần">
+          </label>
+
+          <label class="control">
+            <span>Danh mục</span>
+            <select id="categorySelect">
+              <option value="">Tất cả danh mục</option>
+            </select>
+          </label>
+
+          <label class="control">
+            <span>Thương hiệu</span>
+            <select id="brandSelect">
+              <option value="">Tất cả thương hiệu</option>
+            </select>
+          </label>
+
+          <label class="control">
+            <span>Sắp xếp</span>
+            <select id="sortSelect">
+              <option value="featured">Nổi bật</option>
+              <option value="name-asc">Tên A-Z</option>
+              <option value="price-asc">Giá thấp đến cao</option>
+              <option value="price-desc">Giá cao đến thấp</option>
+              <option value="category-asc">Danh mục A-Z</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="browse-row">
+          <div id="categoryChips" class="chips" aria-label="Lọc nhanh theo danh mục"></div>
+          <button id="resetButton" class="ghost-button" type="button">Xóa lọc</button>
+        </div>
+      </section>
+
+      <section class="catalog-shell" aria-live="polite">
+        <div class="results-header">
+          <div>
+            <p class="eyebrow">Danh mục</p>
+            <h2 id="resultTitle">Tất cả sản phẩm</h2>
+          </div>
+          <p id="resultCount">Đang tải sản phẩm...</p>
+        </div>
+
+        <div id="productGrid" class="product-grid"></div>
+        <div id="emptyState" class="empty-state" hidden>
+          <h2>Không tìm thấy sản phẩm</h2>
+          <p>Hãy thử từ khóa, thương hiệu, danh mục hoặc cách sắp xếp khác.</p>
+        </div>
+      </section>
+
+      <section id="productDetail" class="product-detail-shell" hidden aria-live="polite"></section>
+    </main>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>

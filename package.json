@@ -1,0 +1,13 @@
+{
+  "name": "usaproducts",
+  "version": "1.0.0",
+  "description": "Danh mục sản phẩm Mỹ dạng tĩnh, dùng dữ liệu từ CSV.",
+  "scripts": {
+    "dev": "python -m http.server 4173",
+    "build": "node -e \"const fs=require('fs'); const csv=fs.readFileSync('data/products.csv','utf8'); const rows=csv.trim().split(/\\r?\\n/); if(rows.length < 2) throw new Error('Không tìm thấy sản phẩm'); console.log('Website tĩnh sẵn sàng: '+(rows.length-1)+' sản phẩm')\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
