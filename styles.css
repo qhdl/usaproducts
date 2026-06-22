@@ -85,6 +85,16 @@ h1 {
   letter-spacing: 0;
 }
 
+.home-title {
+  display: inline-block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.home-title:hover {
+  color: #ffd28b;
+}
+
 .header-copy {
   max-width: 650px;
   margin-bottom: 0;

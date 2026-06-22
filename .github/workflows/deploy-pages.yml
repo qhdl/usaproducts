@@ -38,7 +38,7 @@ jobs:
       - name: Prepare Pages artifact
         run: |
           mkdir -p _site
-          cp index.html styles.css app.js CNAME .nojekyll _site/
+          cp index.html styles.css app.js favicon.svg CNAME .nojekyll _site/
           cp -R data _site/data
           if [ -d product-images ]; then cp -R product-images _site/product-images; fi
 
