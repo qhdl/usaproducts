@@ -47,9 +47,11 @@ async function init() {
     state.products = parseCsv(csv).map(normalizeProduct);
     state.activeProductId = getProductIdFromUrl();
 
+    initTheme();
     populateFilters();
     updateStats();
     bindEvents();
+    bindTheme();
     render();
   } catch (error) {
     elements.resultCount.textContent = "Không tải được dữ liệu sản phẩm.";
@@ -497,4 +499,34 @@ function escapeHtml(value) {
 
 function escapeAttribute(value) {
   return escapeHtml(value);
+}
+// ***** Theme Toggle *****
+function applyTheme(mode) {
+  if (mode === "light") {
+    document.body.classList.add("light");
+  } else {
+    document.body.classList.remove("light");
+  }
+}
+
+function initTheme() {
+  var stored = localStorage.getItem("theme");
+  if (stored === "light") {
+    applyTheme("light");
+  } else if (stored === null) {
+    // default is dark, but check system preference
+    var prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+    if (prefersLight) applyTheme("light");
+  }
+}
+
+function bindTheme() {
+  var toggle = document.getElementById("themeToggle");
+  if (toggle) {
+    toggle.addEventListener("click", function() {
+      var isLight = document.body.classList.contains("light");
+      applyTheme(isLight ? "dark" : "light");
+      localStorage.setItem("theme", isLight ? "dark" : "light");
+    });
+  }
 }
